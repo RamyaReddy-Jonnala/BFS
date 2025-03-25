@@ -1,0 +1,23 @@
+//Solution for BFS implementation
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    result = []
+    
+    while queue:
+        node = queue.popleft()
+        result.append(node)
+        
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+    
+    return result
+
+# Example usage:
+start_node = 'A'
+bfs_result = bfs(graph, start_node)
+print(f"BFS traversal starting from {start_node}: {bfs_result}")
